@@ -15,7 +15,7 @@ export const runtime = 'edge';
 const tabSet = new Set(Object.values(JOB_TAB_PARAMS));
 
 const OG_IMAGE_WIDTH = 850;
-const OG_IMAGE_HEIGHT = 420;
+const OG_IMAGE_HEIGHT = 445;
 
 export const GET = async (req: Request) => {
   try {

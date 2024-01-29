@@ -17,6 +17,7 @@ const containerStyle: React.CSSProperties = {
   height: '100%',
   width: '100%',
   padding: '1em',
+  paddingTop: '1.5em',
   background: '#17101F',
   flexDirection: 'column',
   gap: '1.5rem',
