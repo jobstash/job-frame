@@ -8,7 +8,7 @@ interface Props {
 
 const tabContainerStyle: React.CSSProperties = {
   display: 'flex',
-  background: '#0e0e0e',
+  background: '#141317',
   borderRadius: '0.5rem',
   paddingLeft: '1rem',
   paddingRight: '1rem',

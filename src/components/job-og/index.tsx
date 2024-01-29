@@ -17,7 +17,7 @@ const containerStyle: React.CSSProperties = {
   height: '100%',
   width: '100%',
   padding: '1em',
-  background: '#0e0e0e',
+  background: '#17101F',
   flexDirection: 'column',
   gap: '1.5rem',
 };
@@ -29,7 +29,7 @@ const childrenContainerStyle: React.CSSProperties = {
   padding: '1.5rem',
   color: 'white',
   borderRadius: '1.5em',
-  backgroundColor: 'rgb(41,41,41)',
+  backgroundColor: '#1e1e1e',
   width: '100%',
 };
 
