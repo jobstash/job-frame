@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { JOB_TAB_PARAMS_SET, JobTabParamsText } from '~/core/constants';
+import { getJobDetails } from '~/data/get-job-details';
 import { getPostTab } from '~/utils/get-post-tab';
 
 export const dynamic = 'force-dynamic';
@@ -33,7 +34,8 @@ export async function POST(
     // Do something with validated message
     // }
 
-    const postTab = getPostTab(tab, buttonIndex);
+    const job = await getJobDetails(id);
+    const postTab = getPostTab(job, tab, buttonIndex);
 
     const res = await fetch(`${process.env.FE_URL}/jobs/${id}/${postTab}`);
     const resBody = await res.text();

@@ -1,5 +1,5 @@
 export const JOB_TABS = {
-  JOB_DETAILS: 'Job Details',
+  DETAILS: 'Job Details',
   ORGANIZATION: 'Organization',
   REQUIREMENTS: 'Requirements',
   RESPONSIBILITIES: 'Responsibilities',

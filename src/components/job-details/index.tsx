@@ -35,7 +35,7 @@ export const JobDetails = ({ job }: Props) => {
   const tags = createJobInfoTags(job);
 
   return (
-    <JobOG job={job} activeTab={JOB_TABS.JOB_DETAILS}>
+    <JobOG job={job} activeTab={JOB_TABS.DETAILS}>
       <span style={titleStyle}>{job.title}</span>
 
       <div style={infoTagContainerStyle}>

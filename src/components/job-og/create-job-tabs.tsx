@@ -5,7 +5,7 @@ export const createJobTabs = (activeTab: JobTabText, job: JobDetails) => {
   const { requirements, responsibilities, benefits, tags } = job;
 
   const tabs: { text: string }[] = [
-    { text: JOB_TABS.JOB_DETAILS },
+    { text: JOB_TABS.DETAILS },
     { text: JOB_TABS.ORGANIZATION },
   ];
 
