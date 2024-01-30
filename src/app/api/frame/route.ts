@@ -11,7 +11,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const validatedMessage = await getFrameValidatedMessage(body);
 
     if (validatedMessage) {
-      console.log({ validatedMessage });
+      console.log(JSON.stringify({ validatedMessage }));
 
       // // Redirect to page w/ frame metadata
       // const url = `${FE_URL}/jobs/${id}/${tab}`;
