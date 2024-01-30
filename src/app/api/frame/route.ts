@@ -6,7 +6,12 @@ export const dynamic = 'force-dynamic';
 const FE_URL = process.env.FE_URL;
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
-  console.log({ headers: JSON.stringify(req.headers) });
+  const headers: Record<string, string> = {};
+
+  req.headers.forEach((v, k) => {
+    headers[k] = v;
+  });
+  console.log(headers);
 
   try {
     const body = await req.json();
