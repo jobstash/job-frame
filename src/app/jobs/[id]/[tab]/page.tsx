@@ -33,12 +33,14 @@ const getNextTab = (tab: JobTabParamsText) => {
   return JOB_TAB_PARAMS_VALUES[index];
 };
 
+const FE_URL = process.env.FE_URL;
+
 export const generateMetadata = async ({ params: { id, tab } }: Props) => {
-  const imageURL = new URL(`${process.env.FE_URL}/api/jobs`);
+  const imageURL = new URL(`${FE_URL}/api/jobs`);
   imageURL.searchParams.append('id', id);
   imageURL.searchParams.append('tab', getSafeTab(tab));
 
-  const postURL = new URL(`${process.env.FE_URL}/api/frame`);
+  const postURL = new URL(`${FE_URL}/api/frame`);
   postURL.searchParams.append('id', id);
   postURL.searchParams.append('tab', getNextTab(tab));
 
@@ -49,6 +51,7 @@ export const generateMetadata = async ({ params: { id, tab } }: Props) => {
   });
 
   return {
+    metadataBase: new URL(`${FE_URL}/${id}/${tab}`),
     title: 'Test Titlle',
     description: 'Test Description',
     openGraph: {
