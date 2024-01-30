@@ -6,20 +6,16 @@ export const dynamic = 'force-dynamic';
 const FE_URL = process.env.FE_URL;
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
+  console.log({ headers: req.headers });
+
   try {
     const body = await req.json();
-    const validatedMessage = await getFrameValidatedMessage(body);
+    // const validatedMessage = await getFrameValidatedMessage(body);
+    // if (validatedMessage) {
+    // Do something with validated message
+    // }
 
-    if (validatedMessage) {
-      console.log(JSON.stringify({ validatedMessage }));
-
-      // // Redirect to page w/ frame metadata
-      // const url = `${FE_URL}/jobs/${id}/${tab}`;
-      // return NextResponse.redirect(url);
-
-      return NextResponse.json({ message: 'OK' });
-    }
-
+    const unsignedBody = body as UnsignedPostFrameBody;
     console.log(JSON.stringify({ unsignedBody: body }));
 
     return NextResponse.json({ message: 'OK' });
@@ -33,4 +29,15 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
 export async function POST(req: NextRequest): Promise<Response> {
   return getResponse(req);
+}
+
+interface UnsignedPostFrameBody {
+  untrustedData: {
+    fid: number;
+    buttonIndex: number;
+    castId: {
+      fid: number;
+      hash: string;
+    };
+  };
 }
