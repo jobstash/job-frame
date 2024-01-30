@@ -13,25 +13,27 @@ interface Props {
   };
 }
 
-const getSafeTab = (tab: JobTabParamsText) => {
+const getSanitizedTab = (tab: JobTabParamsText) => {
   return JOB_TAB_PARAMS_SET.has(tab) ? tab : JOB_TAB_PARAMS_VALUES[0];
 };
 
 const FE_URL = process.env.FE_URL;
 
 export const generateMetadata = async ({ params: { id, tab } }: Props) => {
+  const sanitizedTab = getSanitizedTab(tab);
+
   const imageURL = new URL(`${FE_URL}/api/jobs`);
   imageURL.searchParams.append('id', id);
-  imageURL.searchParams.append('tab', getSafeTab(tab));
+  imageURL.searchParams.append('tab', sanitizedTab);
 
   const frameMetadata = getFrameMetadata({
     buttons: ['Prev', 'Next'],
     image: imageURL.toString(),
-    post_url: `${FE_URL}/api/frame`,
+    post_url: `${FE_URL}/api/frame/jobs/${id}/${sanitizedTab}`,
   });
 
   return {
-    metadataBase: new URL(`${FE_URL}/${id}/${tab}`),
+    metadataBase: new URL(`${FE_URL}/${id}/${sanitizedTab}`),
     title: 'Test Titlle',
     description: 'Test Description',
     openGraph: {
