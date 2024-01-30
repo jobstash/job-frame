@@ -20,6 +20,9 @@ const getSanitizedTab = (tab: JobTabParamsText) => {
 
 const FRAME_SERVER_URL = process.env.FRAME_SERVER_URL;
 
+const title = 'JobStash';
+const description = 'The Ultimate Crypto Native Job Aggregator';
+
 export const generateMetadata = async ({ params: { id, tab } }: Props) => {
   const sanitizedTab = getSanitizedTab(tab);
 
@@ -35,11 +38,11 @@ export const generateMetadata = async ({ params: { id, tab } }: Props) => {
 
   return {
     metadataBase: new URL(`${FRAME_SERVER_URL}/${id}/${sanitizedTab}`),
-    title: 'Test Titlle',
-    description: 'Test Description',
+    title,
+    description,
     openGraph: {
-      title: 'Test Title',
-      description: 'Test Description',
+      title,
+      description,
       images: [imageURL],
     },
     other: {
