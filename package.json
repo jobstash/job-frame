@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coinbase/onchainkit": "^0.1.6",
     "@vercel/og": "^0.6.2",
     "next": "14.1.0",
     "react": "^18",
