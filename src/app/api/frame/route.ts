@@ -20,7 +20,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ message: 'OK' });
     }
 
-    throw new Error('Invalid frame message');
+    const unsignedBody = await body.json();
+    console.log(JSON.stringify({ unsignedBody }));
+
+    return NextResponse.json({ message: 'OK' });
   } catch (error: unknown) {
     console.log(error);
     return NextResponse.json({
