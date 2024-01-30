@@ -13,6 +13,7 @@ import { JobOrganization } from '~/components/job-organization';
 import { JobRequirements } from '~/components/job-requirements';
 import { JobResponsibilities } from '~/components/job-responsibilities';
 import { JobSkills } from '~/components/job-skills';
+import { getJobDetails } from '~/data/get-job-details';
 
 export const runtime = 'edge';
 
@@ -32,14 +33,7 @@ export const GET = async (req: Request) => {
     const id = searchParams.get('id');
     if (!id) throw new Error('"id" param is required');
 
-    const jobDetailsUrl = `${process.env.MW_URL}/jobs/details/${id}`;
-
-    const res = await fetch(jobDetailsUrl);
-    if (!res.ok) {
-      throw new Error(`MW fetch job-details "${id}" !res.ok`);
-    }
-
-    const job = await res.json();
+    const job = await getJobDetails(id);
     const el = getOGElement(tab, job);
 
     return new ImageResponse(el, {
