@@ -4,7 +4,6 @@ import {
   JOB_TAB_PARAMS_VALUES,
   JobTabParamsText,
 } from '~/core/constants';
-import { getJobDetails } from '~/data/get-job-details';
 
 interface Props {
   params: {
@@ -47,10 +46,6 @@ export const generateMetadata = async ({ params: { id, tab } }: Props) => {
   };
 };
 
-const JobMetadataPage = async ({ params: { id } }: Props) => {
-  const job = await getJobDetails(id);
-
-  return <pre>{JSON.stringify({ job }, undefined, '\t')}</pre>;
-};
+const JobMetadataPage = async () => null;
 
 export default JobMetadataPage;
