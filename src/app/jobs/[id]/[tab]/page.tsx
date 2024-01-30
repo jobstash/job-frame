@@ -43,7 +43,7 @@ export const generateMetadata = async ({ params: { id, tab } }: Props) => {
   postURL.searchParams.append('tab', getNextTab(tab));
 
   const frameMetadata = getFrameMetadata({
-    buttons: [],
+    buttons: ['Prev', 'Next'],
     image: imageURL.toString(),
     post_url: postURL.toString(),
   });
