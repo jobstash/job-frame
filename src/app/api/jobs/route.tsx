@@ -1,7 +1,11 @@
 import { ImageResponse } from 'next/og';
 
 import { JobDetails as TJobDetails } from '~/core/types';
-import { JOB_TAB_PARAMS, JobTabParamsText } from '~/core/constants';
+import {
+  JOB_TAB_PARAMS,
+  JOB_TAB_PARAMS_SET,
+  JobTabParamsText,
+} from '~/core/constants';
 
 import { JobBenefits } from '~/components/job-benefits';
 import { JobDetails } from '~/components/job-details';
@@ -11,8 +15,6 @@ import { JobResponsibilities } from '~/components/job-responsibilities';
 import { JobSkills } from '~/components/job-skills';
 
 export const runtime = 'edge';
-
-const tabSet = new Set(Object.values(JOB_TAB_PARAMS));
 
 const OG_IMAGE_WIDTH = 850;
 const OG_IMAGE_HEIGHT = 445;
@@ -24,7 +26,7 @@ export const GET = async (req: Request) => {
     const tab = searchParams.get('tab') as JobTabParamsText | null;
     if (!tab) throw new Error('"tab" param is required');
 
-    const isInTabSet = tabSet.has(tab);
+    const isInTabSet = JOB_TAB_PARAMS_SET.has(tab);
     if (!isInTabSet) throw new Error(`Invalid tab "${tab}"`);
 
     const id = searchParams.get('id');

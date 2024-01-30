@@ -16,6 +16,9 @@ export const JOB_TAB_PARAMS = {
   SKILLS: 'skills',
 } as const;
 
+export const JOB_TAB_PARAMS_VALUES = Object.values(JOB_TAB_PARAMS);
+export const JOB_TAB_PARAMS_SET = new Set(JOB_TAB_PARAMS_VALUES);
+
 export type JobTabText = (typeof JOB_TABS)[keyof typeof JOB_TABS];
 export type JobTabParamsText =
   (typeof JOB_TAB_PARAMS)[keyof typeof JOB_TAB_PARAMS];
