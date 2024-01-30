@@ -37,7 +37,9 @@ export async function POST(
     const job = await getJobDetails(id);
     const postTab = getPostTab(job, tab, buttonIndex);
 
-    const res = await fetch(`${process.env.FE_URL}/jobs/${id}/${postTab}`);
+    const res = await fetch(
+      `${process.env.FRAME_SERVER_URL}/jobs/${id}/${postTab}`,
+    );
     const resBody = await res.text();
 
     return new NextResponse(resBody);
