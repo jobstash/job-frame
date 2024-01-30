@@ -20,8 +20,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ message: 'OK' });
     }
 
-    const unsignedBody = await body.json();
-    console.log(JSON.stringify({ unsignedBody }));
+    console.log(JSON.stringify({ unsignedBody: body }));
 
     return NextResponse.json({ message: 'OK' });
   } catch (error: unknown) {
