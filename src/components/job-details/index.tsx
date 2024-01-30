@@ -13,11 +13,6 @@ interface Props {
   job: TJobDetails;
 }
 
-const titleStyle: React.CSSProperties = {
-  fontSize: '1.25rem',
-  lineHeight: '1.75rem',
-};
-
 const infoTagContainerStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
@@ -36,7 +31,7 @@ export const JobDetails = ({ job }: Props) => {
 
   return (
     <JobOG job={job} activeTab={JOB_TABS.DETAILS}>
-      <span style={titleStyle}>{job.title}</span>
+      <BodyTitle text={job.title} />
 
       <div style={infoTagContainerStyle}>
         {tags.map((tag) => (

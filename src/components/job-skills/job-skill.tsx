@@ -49,7 +49,7 @@ export const JobSkill = ({ tag }: Props) => {
     border: `1px solid ${colorPool[colorIndex]}`,
     fontSize: '0.875rem',
     lineHeight: '1.25rem',
-    fontWeight: '700',
+    fontWeight: '1500',
   };
 
   return <div style={containerStyle}>{name.toUpperCase()}</div>;

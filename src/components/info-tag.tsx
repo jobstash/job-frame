@@ -1,6 +1,7 @@
 import { InfoTagProps } from '~/core/types';
 
 import { ExternalIcon } from './icons/external-icon';
+import { BodyText } from './body-text';
 
 interface Props {
   tag: InfoTagProps;
@@ -13,10 +14,9 @@ const containerStyle: React.CSSProperties = {
   justifyContent: 'center',
 };
 
-const textStyle: React.CSSProperties = {
+const textContainerStyle: React.CSSProperties = {
+  display: 'flex',
   paddingLeft: '0.5rem',
-  fontSize: '0.875rem',
-  lineHeight: '1.25rem',
 };
 
 export const InfoTag = ({ tag }: Props) => {
@@ -25,7 +25,9 @@ export const InfoTag = ({ tag }: Props) => {
   return (
     <div style={containerStyle}>
       {icon}
-      <span style={textStyle}>{text}</span>
+      <div style={textContainerStyle}>
+        <BodyText text={text} />
+      </div>
       {showExternalIcon && <ExternalIcon />}
     </div>
   );
