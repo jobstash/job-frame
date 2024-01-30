@@ -33,10 +33,18 @@ const getNextTab = (tab: JobTabParamsText) => {
 };
 
 export const generateMetadata = async ({ params: { id, tab } }: Props) => {
+  const imageURL = new URL(`${process.env.FE_URL}/api/jobs`);
+  imageURL.searchParams.append('id', id);
+  imageURL.searchParams.append('tab', getSafeTab(tab));
+
+  const postURL = new URL(`${process.env.FE_URL}/api/frame`);
+  postURL.searchParams.append('id', id);
+  postURL.searchParams.append('tab', getNextTab(tab));
+
   const frameMetadata = getFrameMetadata({
     buttons: ['Prev', 'Next'],
-    image: `/api/jobs?id=${id}&tab=${getSafeTab(tab)}`,
-    post_url: `/api/frame?${id}&tab=${getNextTab(tab)}`,
+    image: imageURL.toString(),
+    post_url: postURL.toString(),
   });
 
   return {
