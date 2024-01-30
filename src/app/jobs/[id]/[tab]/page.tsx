@@ -48,6 +48,13 @@ export const generateMetadata = async ({ params: { id, tab } }: Props) => {
   });
 
   return {
+    title: 'Test Titlle',
+    description: 'Test Description',
+    openGraph: {
+      title: 'Test Title',
+      description: 'Test Description',
+      images: [imageURL],
+    },
     other: {
       ...frameMetadata,
     },
