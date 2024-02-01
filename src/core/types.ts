@@ -70,15 +70,20 @@ export interface OrgInfoTags {
   reviewCount: number;
 }
 
-export interface OrgSocials extends Omit<Socials, 'website'> {}
+export interface OrgSocials extends Omit<Socials, 'website'> {
+  website: string;
+}
 
-export interface OrgInfo {
+export interface OrgInfo extends OrgSocials {
   id: string;
   name: string;
   orgId: string;
   summary: string;
   description: string;
   logoUrl: string | null;
+  headcountEstimate: number | null;
+  createdTimestamp: number | null;
+  updatedTimestamp: number | null;
 }
 
 export interface JobInfoTags {

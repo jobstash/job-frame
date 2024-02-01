@@ -8,6 +8,7 @@ import { InfoTag } from '../info-tag';
 import { Divider } from '../divider';
 import { BodyText } from '../body-text';
 import { BodyTitle } from '../body-title';
+import { JobOrgHeader } from '../job-org-header';
 
 interface Props {
   job: TJobDetails;
@@ -45,6 +46,10 @@ export const JobDetails = ({ job }: Props) => {
         <BodyTitle text="Description" />
         <BodyText text={job.description} />
       </div>
+
+      <Divider />
+
+      <JobOrgHeader job={job} />
     </JobOG>
   );
 };
