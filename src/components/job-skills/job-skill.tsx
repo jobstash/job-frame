@@ -21,7 +21,7 @@ function getColorIndex(uuid: string, N: number) {
   pseudorandomBytes = pseudorandomBytes.replaceAll('-', '');
   let accumulator = 0;
 
-  const pseudoMatch = pseudorandomBytes.match(/.{1,8}/g);
+  const pseudoMatch = pseudorandomBytes.match(/.{1,12}/g);
   if (!pseudoMatch) return 0;
 
   for (const a of pseudoMatch) {
@@ -43,12 +43,12 @@ export const JobSkill = ({ tag }: Props) => {
   const containerStyle: React.CSSProperties = {
     display: 'flex',
     borderRadius: '0.125rem',
-    padding: '0.25rem',
-    paddingLeft: '0.375rem',
-    paddingRight: '0.375rem',
+    padding: '0.5rem',
+    paddingLeft: '0.875rem',
+    paddingRight: '0.875rem',
     border: `1px solid ${colorPool[colorIndex]}`,
-    fontSize: '0.875rem',
-    lineHeight: '1.25rem',
+    fontSize: '1rem',
+    lineHeight: '1.5rem',
     fontWeight: '1500',
   };
 
