@@ -24,6 +24,7 @@ const childrenRootStyle: React.CSSProperties = {
 };
 
 export const JobOrganization = ({ job }: Props) => {
+  const hasFundingRounds = job.organization.fundingRounds.length > 0;
   return (
     <JobOG
       job={job}
@@ -33,9 +34,9 @@ export const JobOrganization = ({ job }: Props) => {
       <JobOrgHeader job={job} withTags={false} />
       <Divider />
       <BodyText text={job.organization.description} />
-      <Divider />
+      {hasFundingRounds && <Divider />}
       <JobOrgFundingRounds fundingRounds={job.organization.fundingRounds} />
-      <Divider />
+      {/* <Divider /> */}
     </JobOG>
   );
 };
