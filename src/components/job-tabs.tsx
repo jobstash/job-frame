@@ -22,6 +22,13 @@ const tabsContainerStyle: React.CSSProperties = {
   color: 'white',
 };
 
+const textStyle: React.CSSProperties = {
+  fontSize: '1.3rem',
+  lineHeight: '1.5rem',
+  fontWeight: '900',
+  color: 'white',
+};
+
 export const JobTabs = ({ tabs }: Props) => {
   return (
     <div style={tabsContainerStyle}>
@@ -39,7 +46,7 @@ export const JobTab = ({ text, isActive }: Tab) => {
     <div style={{ display: 'flex', borderRadius: '0.5em' }}>
       <GradientBorder color={color} borderRadius="0.5rem">
         <div style={tabContainerStyle}>
-          <span>{text}</span>
+          <span style={textStyle}>{text}</span>
         </div>
       </GradientBorder>
     </div>
