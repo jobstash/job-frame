@@ -1,6 +1,8 @@
 import { JobDetails } from '~/core/types';
-import { JobSkill } from './job-skill';
 import { JOB_TABS } from '~/core/constants';
+
+import { JobSkill } from './job-skill';
+
 import { JobOG } from '../job-og';
 import { BodyTitle } from '../body-title';
 import { BodyText } from '../body-text';
@@ -22,8 +24,8 @@ const tagsContainerStyle: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
-  gap: '0.5rem',
-  maxHeight: '156px',
+  gap: '1rem',
+  maxHeight: '300px',
   overflow: 'hidden',
 };
 

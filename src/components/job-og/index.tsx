@@ -10,6 +10,7 @@ interface Props {
   job: JobDetails;
   activeTab: JobTabText;
   children: React.ReactNode;
+  childrenRootStyle?: React.CSSProperties;
 }
 
 const containerStyle: React.CSSProperties = {
@@ -34,7 +35,12 @@ const childrenContainerStyle: React.CSSProperties = {
   width: '100%',
 };
 
-export const JobOG = ({ activeTab, job, children }: Props) => {
+export const JobOG = ({
+  activeTab,
+  job,
+  children,
+  childrenRootStyle,
+}: Props) => {
   const tabs = createJobTabs(activeTab, job);
 
   return (
@@ -42,7 +48,9 @@ export const JobOG = ({ activeTab, job, children }: Props) => {
       <JobTabs tabs={tabs} />
 
       <GradientBorder>
-        <div style={childrenContainerStyle}>{children}</div>
+        <div style={childrenRootStyle ?? childrenContainerStyle}>
+          {children}
+        </div>
       </GradientBorder>
     </div>
   );
