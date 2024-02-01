@@ -17,8 +17,8 @@ import { getJobDetails } from '~/data/get-job-details';
 
 export const runtime = 'edge';
 
-const OG_IMAGE_WIDTH = 850;
-const OG_IMAGE_HEIGHT = 445;
+const OG_IMAGE_WIDTH = 1100;
+const OG_IMAGE_HEIGHT = 576;
 
 export const GET = async (req: Request) => {
   try {
