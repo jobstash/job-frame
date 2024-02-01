@@ -25,7 +25,7 @@ const tagsContainerStyle: React.CSSProperties = {
   alignItems: 'center',
   flexWrap: 'wrap',
   gap: '1rem',
-  maxHeight: '300px',
+  maxHeight: '320px',
   overflow: 'hidden',
 };
 
