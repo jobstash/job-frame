@@ -47,7 +47,7 @@ export const JobSkill = ({ tag }: Props) => {
     paddingLeft: '0.875rem',
     paddingRight: '0.875rem',
     border: `2px solid ${colorPool[colorIndex]}`,
-    fontSize: '1rem',
+    fontSize: '1.25rem',
     lineHeight: '1.5rem',
     fontWeight: '1500',
   };

@@ -23,4 +23,4 @@ export type JobTabText = (typeof JOB_TABS)[keyof typeof JOB_TABS];
 export type JobTabParamsText =
   (typeof JOB_TAB_PARAMS)[keyof typeof JOB_TAB_PARAMS];
 
-export const MULTI_STRING_LIMIT = 8;
+export const MULTI_STRING_LIMIT = 6;

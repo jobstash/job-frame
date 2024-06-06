@@ -3,7 +3,7 @@ interface Props {
 }
 
 const textStyle: React.CSSProperties = {
-  fontSize: '1.65rem',
+  fontSize: '1.9rem',
   lineHeight: '1.75rem',
   fontWeight: '900',
   color: 'white',
