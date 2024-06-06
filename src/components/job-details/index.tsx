@@ -42,14 +42,14 @@ export const JobDetails = ({ job }: Props) => {
 
       <Divider />
 
-      <div style={bodyContainerStyle}>
-        <BodyTitle text="Description" />
-        <BodyText text={job.description} />
-      </div>
+      <JobOrgHeader job={job} />
 
       <Divider />
 
-      <JobOrgHeader job={job} />
+      <div style={bodyContainerStyle}>
+        <BodyTitle text="Summary" />
+        <BodyText text={job.summary} />
+      </div>
     </JobOG>
   );
 };
