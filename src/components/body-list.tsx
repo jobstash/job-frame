@@ -13,6 +13,12 @@ const containerStyle: React.CSSProperties = {
   paddingLeft: '1.5rem',
 };
 
+const itemContainerStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'row',
+  gap: '0.5em',
+};
+
 export const BodyList = ({ items }: Props) => {
   const hasEllipsis = items.length > MULTI_STRING_LIMIT;
   const _items = hasEllipsis ? items.splice(0, MULTI_STRING_LIMIT) : items;
@@ -20,7 +26,10 @@ export const BodyList = ({ items }: Props) => {
   return (
     <div style={containerStyle}>
       {_items.map((text) => (
-        <BodyText key={text} text={`• ${text}`} />
+        <div key={text} style={itemContainerStyle}>
+          <BodyText key={text} text={`•`} />
+          <BodyText key={text} text={`${text}`} />
+        </div>
       ))}
 
       {hasEllipsis && <BodyText text="..." />}
