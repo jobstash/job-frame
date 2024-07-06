@@ -1,4 +1,3 @@
-import { getFrameMetadata } from '@coinbase/onchainkit';
 import Image from 'next/image';
 import {
   JOB_TAB_PARAMS_SET,
@@ -30,11 +29,8 @@ export const generateMetadata = async ({ params: { id, tab } }: Props) => {
   imageURL.searchParams.append('id', id);
   imageURL.searchParams.append('tab', sanitizedTab);
 
-  const frameMetadata = getFrameMetadata({
-    buttons: ['Prev', 'Next'],
-    image: imageURL.toString(),
-    post_url: `${FRAME_SERVER_URL}/api/frame/jobs/${id}/${sanitizedTab}`,
-  });
+  const imageLink = imageURL.toString();
+  const postURL = `${FRAME_SERVER_URL}/api/frame/jobs/${id}/${sanitizedTab}`;
 
   return {
     metadataBase: new URL(`${FRAME_SERVER_URL}/${id}/${sanitizedTab}`),
@@ -43,10 +39,21 @@ export const generateMetadata = async ({ params: { id, tab } }: Props) => {
     openGraph: {
       title,
       description,
-      images: [imageURL],
+      images: [imageLink],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@jobstash_xyz',
+      images: [imageLink],
     },
     other: {
-      ...frameMetadata,
+      'fc:frame': 'vNext',
+      'fc:frame:button:1': 'Prev',
+      'fc:frame:button:2': 'Next',
+      'fc:frame:image': imageLink,
+      'fc:frame:post_url': postURL,
     },
   };
 };
@@ -69,7 +76,7 @@ const JobMetadataPage = async ({ params: { id } }: Props) => {
           </div>
         </div>
       </div>
-      <Redirector id={id} />
+      {/* <Redirector id={id} /> */}
     </>
   );
 };
