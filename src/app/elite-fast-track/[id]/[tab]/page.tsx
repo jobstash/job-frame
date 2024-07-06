@@ -3,8 +3,6 @@ import { Redirector } from '~/components/redirector';
 import { PageProps } from '~/core/types';
 import { getMetadataFn } from '~/utils/generate-metadata';
 
-export { getMetadataFn } from '~/utils/generate-metadata';
-
 export const generateMetadata = getMetadataFn(true);
 
 const EliteJobMetadataPage = async ({ params: { id } }: PageProps) => {
