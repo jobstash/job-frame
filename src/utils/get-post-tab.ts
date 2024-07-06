@@ -2,7 +2,7 @@ import { JOB_TAB_PARAMS, JobTabParamsText } from '~/core/constants';
 import { JobDetails } from '~/core/types';
 
 const PREV_INDEX = 1;
-const NEXT_INDEX = 3;
+const NEXT_INDEX = 2;
 
 export const getPostTab = (
   job: JobDetails,
