@@ -18,6 +18,7 @@ const getSanitizedTab = (tab: JobTabParamsText) => {
 };
 
 const FRAME_SERVER_URL = process.env.FRAME_SERVER_URL;
+const FE_SERVER_URL = process.env.NEXT_PUBLIC_FE_URL;
 
 const title = 'JobStash';
 const description = 'The Ultimate Crypto Native Job Aggregator';
@@ -31,6 +32,7 @@ export const generateMetadata = async ({ params: { id, tab } }: Props) => {
 
   const imageLink = imageURL.toString();
   const postURL = `${FRAME_SERVER_URL}/api/frame/jobs/${id}/${sanitizedTab}`;
+  const jobURL = `${FE_SERVER_URL}/jobs/${id}/details`;
 
   return {
     metadataBase: new URL(`${FRAME_SERVER_URL}/${id}/${sanitizedTab}`),
@@ -51,7 +53,10 @@ export const generateMetadata = async ({ params: { id, tab } }: Props) => {
     other: {
       'fc:frame': 'vNext',
       'fc:frame:button:1': 'Prev',
-      'fc:frame:button:2': 'Next',
+      'fc:frame:button:2': 'Apply to this Job',
+      'fc:frame:button:2:action': 'link',
+      'fc:frame:button:2:target': jobURL,
+      'fc:frame:button:3': 'Next',
       'fc:frame:image': imageLink,
       'fc:frame:post_url': postURL,
     },
