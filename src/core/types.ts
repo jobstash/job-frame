@@ -1,3 +1,5 @@
+import { JobTabParamsText } from './constants';
+
 export interface FundingRound {
   id: string;
   date: number;
@@ -134,4 +136,11 @@ export interface InfoTagProps {
 export interface Tab {
   text: string;
   isActive: boolean;
+}
+
+export interface PageProps {
+  params: {
+    id: string;
+    tab: JobTabParamsText;
+  };
 }

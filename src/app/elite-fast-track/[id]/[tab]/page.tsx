@@ -5,15 +5,15 @@ import { getMetadataFn } from '~/utils/generate-metadata';
 
 export { getMetadataFn } from '~/utils/generate-metadata';
 
-export const generateMetadata = getMetadataFn();
+export const generateMetadata = getMetadataFn(true);
 
-const JobMetadataPage = async ({ params: { id } }: PageProps) => {
+const EliteJobMetadataPage = async ({ params: { id } }: PageProps) => {
   return (
     <>
       <PageLoader />
-      <Redirector id={id} />
+      <Redirector isElite id={id} />
     </>
   );
 };
 
-export default JobMetadataPage;
+export default EliteJobMetadataPage;
